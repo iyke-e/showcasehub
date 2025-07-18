@@ -1,0 +1,4 @@
+for fonts 
+-space grotesk for h1 h2 hero text
+- inter - for body text
+jetBrain mono - tagline
