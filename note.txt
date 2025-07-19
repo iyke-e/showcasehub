@@ -1,4 +1,13 @@
 for fonts 
--space grotesk for h1 h2 hero text
+- space grotesk for h1 h2 hero text
 - inter - for body text
-jetBrain mono - tagline
+- jetBrain mono - tagline
+
+| Section           | Purpose                         |
+| ----------------- | ------------------------------- |
+| Hero              | First impression & CTA          |
+| Features          | Explain platform benefits       |
+| Featured Projects | Showcase community & engagement |
+| How It Works      | Simplify user onboarding        |
+| Call to Action    | Encourage signup                |
+| Footer            | Navigation & contact            |
