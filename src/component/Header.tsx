@@ -1,11 +1,10 @@
 import { Link, NavLink } from 'react-router'
 import { Icons } from '../assets'
 import Button from './ui/Button '
-import { useState } from 'react'
 import ProfileImage from './ProfileImage'
 
 const Header = () => {
-    const [isLoggedin, setisLoggedin] = useState(false)
+    const isLoggedin = false;
 
     return (
         <header className='px-pad pb-2  bg-bg sticky top-0 z-50  pt-6 flex justify-between'>

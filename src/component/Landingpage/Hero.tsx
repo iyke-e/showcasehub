@@ -1,5 +1,4 @@
 import { Icons, Images } from '@/assets'
-import React from 'react'
 import Button from '../ui/Button '
 
 const Hero = () => {
