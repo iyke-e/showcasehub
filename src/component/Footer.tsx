@@ -4,14 +4,14 @@ import { Link } from 'react-router'
 const Footer = () => {
     return (
         <div className='bg-black px-pad pt-10 text-xs text-white'>
-            <div className='flex justify-between pb-10'>
-                <div>
+            <div className=' flex flex-col lg:flex-row justify-between pb-10'>
+                <div className='mb-12'>
                     <Link to={"/"} className='flex items-center gap-2'>
                         <Icons.Logo fill='#ffffff' stroke="#ffffff" height={30} width={30} />
                         <p className='font-inter text-xl text-white'>ShowcaseHub</p>
                     </Link>
                 </div>
-                <div className='flex gap-30'>
+                <div className='flex flex-col lg:flex-row gap-8 lg:gap-30'>
                     <ul className='grid gap-2'>
                         <li className='font-medium text-base pb-3'>Company</li>
                         {
@@ -69,7 +69,7 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <div className='border-t flex text-gray-400 justify-between py-6 items-center border-white/10'>
+            <div className='border-t flex flex-col lg:flex-row gap-3 text-gray-400 justify-between py-6 items-center border-white/10'>
                 <p>                &copy; 2024 ShowcaseHub. All rights reserved                </p>
                 <ul className='flex  items-center gap-4'>
                     <li>

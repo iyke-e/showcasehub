@@ -1,8 +1,8 @@
 // src/features/auth/authSlice.ts
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import type {  PayloadAction } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 import axiosInstance from "@/services/api/axios";
-import type { LoginSchemaType, SignupSchemaType } from "@/schemas/authschema"
+import type { LoginSchemaType, SignupSchemaType } from "@/schemas/authschema";
 
 interface AuthResponse {
   token: string;
@@ -20,6 +20,7 @@ interface AuthState {
   isLoading: boolean;
   isError: boolean;
   errorMessage: string | null;
+  hydrated: boolean; 
 }
 
 const initialState: AuthState = {
@@ -29,9 +30,9 @@ const initialState: AuthState = {
   isLoading: false,
   isError: false,
   errorMessage: null,
+  hydrated: false,
 };
 
-// Thunks
 export const loginUser = createAsyncThunk<AuthResponse, LoginSchemaType, { rejectValue: string }>(
   "auth/loginUser",
   async (payload, thunkAPI) => {
@@ -48,7 +49,7 @@ export const signupUser = createAsyncThunk<AuthResponse, SignupSchemaType, { rej
   "auth/signupUser",
   async (payload, thunkAPI) => {
     try {
-      const res = await axiosInstance.post<AuthResponse>("/auth/signup", payload);
+      const res = await axiosInstance.post<AuthResponse>("/auth/register", payload);
       return res.data;
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.response?.data?.message || "Signup failed");
@@ -56,7 +57,6 @@ export const signupUser = createAsyncThunk<AuthResponse, SignupSchemaType, { rej
   }
 );
 
-// Slice
 const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -65,12 +65,26 @@ const authSlice = createSlice({
       state.user = null;
       state.token = null;
       state.isLoggedIn = false;
+      state.hydrated = true;
       localStorage.removeItem("auth");
+    },
+    rehydrateAuth: (state) => {
+      const storedAuth = localStorage.getItem("auth");
+      if (storedAuth) {
+        try {
+          const parsed = JSON.parse(storedAuth);
+          state.user = parsed.user;
+          state.token = parsed.token;
+          state.isLoggedIn = true;
+        } catch (error) {
+          console.error("Invalid auth object");
+        }
+      }
+      state.hydrated = true;
     },
   },
   extraReducers: (builder) => {
     builder
-      // Login
       .addCase(loginUser.pending, (state) => {
         state.isLoading = true;
         state.isError = false;
@@ -81,6 +95,8 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.isError = false;
+        state.hydrated = true;
         localStorage.setItem("auth", JSON.stringify(action.payload));
       })
       .addCase(loginUser.rejected, (state, action) => {
@@ -90,7 +106,6 @@ const authSlice = createSlice({
         state.isLoggedIn = false;
       })
 
-      // Signup
       .addCase(signupUser.pending, (state) => {
         state.isLoading = true;
         state.isError = false;
@@ -101,6 +116,8 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.isError = false;
+        state.hydrated = true;
         localStorage.setItem("auth", JSON.stringify(action.payload));
       })
       .addCase(signupUser.rejected, (state, action) => {
@@ -112,5 +129,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { logout } = authSlice.actions;
+export const { logout, rehydrateAuth } = authSlice.actions;
 export default authSlice.reducer;

@@ -8,9 +8,9 @@ const AuthLayout = ({ children }: PropsWithChildren) => {
     const location = useLocation().pathname
 
     return (
-        <div className='grid bg-bg h-screen gap-10 grid-cols-[4fr_5fr]'>
+        <div className='grid bg-bg h-[100dvh]  md:grid-cols-[5fr_5fr] lg:grid-cols-[4fr_5fr]'>
             <div className='grid place-content-center ' >
-                <div className='py-8 px-10'>
+                <div className='py-8 px-4 lg:px-10'>
                     <Logo iconSize={30} fontSize={"1.25rem"} className='mb-4' />
                     {
                         location === "/signup"
@@ -51,7 +51,7 @@ const AuthLayout = ({ children }: PropsWithChildren) => {
                 </div>
 
             </div>
-            <div style={{ backgroundImage: `url(${Images.Loginbg2})` }} className=' grid grid-rows-[1fr_auto] bg-black/20 p-2 bg-cover bg-center bg-no-repeat  h-full'>
+            <div style={{ backgroundImage: `url(${Images.Loginbg2})` }} className='hidden md:grid grid-rows-[1fr_auto] bg-black/20 p-2 bg-cover bg-center bg-no-repeat  h-full'>
 
                 <div className='p-5 text-white' >
                 </div>

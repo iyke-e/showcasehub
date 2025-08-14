@@ -3,11 +3,13 @@ import { type PropsWithChildren } from 'react'
 type ButtonProp = PropsWithChildren<{
     type?: string,
     style?: string
+    disabled?: boolean
+    onClick?: () => void
 }>
 
-const Button = ({ children, type, style }: ButtonProp) => {
+const Button = ({ children, type, style, disabled, onClick }: ButtonProp) => {
     return (
-        <button className={`${type === "outline" ? "outline outline-dark-green/10 text-dark-green/80" : "bg-primary text-white"}  cursor-pointer rounded-full px-5 py-2 ${style}`}>
+        <button onClick={onClick} disabled={disabled} className={`${type === "outline" ? "outline outline-primary/50 text-primary" : "bg-primary text-white"}  cursor-pointer rounded-full px-5 py-3 ${style}`} >
             {children}
         </button >
     )

@@ -2,13 +2,13 @@ import { features } from './featuresData'
 
 const Features = () => {
     return (
-        <div className='bg-dark-green relative overflow-hidden px-pad py-24 text-white'>
+        <div className='bg-dark-green relative overflow-hidden px-minipad lg:px-pad py-14 lg:py-24 text-white'>
             {/* <Icons.Donut className='absolute rotate-90 opacity-10 -top-70 -right-40' width={500} height={500} /> */}
 
-            <h2 className='text-[40px] font-light text-center font-space mb-6'>Empowering Your Creative Journey</h2>
-            <p className='text-center leading-6 text-sm text-gray-300'>From your first project to your biggest launch we’re here to help <br /> you share your work with the world</p>
+            <h2 className='text-4xl leading-12 lg:text-[40px] mt-5 font-light text-center font-space mb-6'>Empowering Your Creative Journey</h2>
+            <p className='text-center leading-6 text-sm max-w-120 mx-auto text-gray-300'>From your first project to your biggest launch we’re here to help  you share your work with the world</p>
 
-            <div className='grid gap-6 grid-cols-3 mt-14 '>
+            <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-14 '>
                 {
                     features.map((item, index) => (
                         <div className='bg-white/10 relative shadow border border-white/20 backdrop-blur-md  p-6  rounded-lg' key={index}>

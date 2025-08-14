@@ -17,6 +17,12 @@ import Profile from "@assets/svgs/profile.svg?react";
 import Eye from "@assets/svgs/eye.svg?react";
 import EyeSlashed from "@assets/svgs/eyeslash.svg?react";
 import Meter from "@assets/svgs/meter.svg?react";
+import Close from "@assets/svgs/close.svg?react";
+import Home from "@assets/svgs/Home.svg?react";
+import User from "@assets/svgs/user.svg?react";
+import ArrowheadLeft from "@assets/svgs/ArrowheadLeft.svg?react";
+import Menu from "@assets/svgs/menu.svg?react";
+import FolderBlack from "@assets/svgs/folderblack.svg?react";
 import Email from "@assets/svgs/email.svg?react";
 import Padlock from "@assets/svgs/padlock.svg?react";
 import Programmer from "@assets/images/programmer.jpg"
@@ -33,7 +39,13 @@ export const Images = {
 };
 
 export const Icons = {
+    FolderBlack,
+    User,
+    ArrowheadLeft,
+    Home,
+    Menu,
     Eye,
+    Close,
     EyeSlashed,
     Profile,
     Padlock,

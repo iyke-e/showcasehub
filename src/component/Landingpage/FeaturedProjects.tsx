@@ -32,24 +32,98 @@ const FeaturedProjects = () => {
     };
 
     return (
-        <div className="bg-black relative overflow-hidden px-pad py-24 text-white">
-            <h2 className="text-[40px] font-light text-center font-space mb-6">
+        <div className="bg-black relative overflow-hidden py-24 text-white">
+            <h2 className="text-3xl lg:text-[40px] font-light text-center font-space mb-2 lg:mb-6">
                 Spotlight on Creativity
             </h2>
             <p className="text-center leading-6 mb-14 text-sm text-gray-300">
                 Discover fresh ideas and innovative projects.
             </p>
+            {/* mobiile animation section */}
+            <div className="md:hidden">
+                <div className="relative overflow-hidden h-130">
+                    <div className={`${animateNext ? "slideOutLeft" : ""} top-0 absolute`}>
+                        <div
+                            style={{
+                                backgroundImage: `url(${project[activeIndex].image})`,
+                            }}
+                            className="bg-cover h-60 bg-center"
+                        />
 
-            {/* animated project section */}
-            <div>
-                <div className="flex items-end">
-                    <div className="grid grid-cols-2 h-100 gap-6">
-                        <div className="flex flex-col justify-between gap-4 px-8 py-10">
+                        <div className="flex flex-col px-minipad justify-between gap-14 py-10">
                             <div>
+                                <p className="text-white mb-2"> Featured Project</p>
                                 <h2 className="text-4xl font-semibold mb-2">
                                     {project[activeIndex].name}
                                 </h2>
                                 <p>{project[activeIndex].description}</p>
+                            </div>
+                            <div>
+                                <Link to="/">
+                                    <Button>Read More</Button>
+                                </Link>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div className={`${animateNext ? "slideInRight" : ""} opacity-0 top-0 absolute`}>
+                        <div
+                            style={{
+                                backgroundImage: `url(${project[nextIndex].image})`,
+                            }}
+                            className="bg-cover h-60 bg-center"
+                        />
+
+                        <div className="flex flex-col px-minipad justify-between gap-14 py-10">
+                            <div>
+                                <p className="text-white mb-2"> Featured Project</p>
+                                <h2 className="text-4xl font-semibold mb-2">
+                                    {project[nextIndex].name}
+                                </h2>
+                                <p>{project[nextIndex].description}</p>
+                            </div>
+                            <div>
+                                <Link to="/">
+                                    <Button>Read More</Button>
+                                </Link>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                <div className="flex px-minipad w-full mt-4 gap-2">
+                    {project.map((_, index) => (
+
+
+                        <div className={`${activeIndex === index ? "w-full" : "w-12"
+                            } mt-4  outline outline-white/20 grid rounded-full h-[0.25px]`}>
+                            <div
+                                className={`${activeIndex === index ? "loading" : ""
+                                    } bg-white w-0 rounded-full`}
+                            ></div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* desktop animated project section */}
+            <div className="hidden md:block px-minipad lg:px-pad">
+                <div className="flex items-end">
+                    <div className="grid grid-cols-2 h-80 lg:h-100 gap-6">
+                        <div className="flex flex-col justify-between gap-4 px-6 py-10">
+                            <div>
+                                <h2 className="text-4xl font-semibold mb-2">
+                                    {project[activeIndex].name}
+                                </h2>
+                                <p >{project[activeIndex].description}</p>
                             </div>
                             <div>
                                 <Link to="/">
@@ -97,7 +171,7 @@ const FeaturedProjects = () => {
                             className="grid gap-2"
                         >
                             <p className="text-xl opacity-70">{item.name}</p>
-                            <p>{item.description}</p>
+                            <p className="text-sm lg:text-base">{item.description}</p>
                             <div className="w-full mt-4 grid rounded-full h-[1px]">
                                 <div
                                     className={`${activeIndex === index ? "loading" : ""
