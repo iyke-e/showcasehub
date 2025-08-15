@@ -13,14 +13,14 @@ const Header = () => {
 
     return (
         <header >
-            <div className=' px-minipad py-4  lg:px-pad bg-bg sticky top-0 z-50  flex justify-between'>
-                <Link to={"/"} className='flex justify-center items-center gap-2'>
+            <div className='grid grid-cols-[1fr_auto] md:grid-cols-[auto_1fr_auto] px-minipad py-4  lg:px-pad bg-bg sticky top-0 z-50  '>
+                <Link to={"/"} className='flex  items-center gap-2'>
                     <Icons.Logo className='w-8 h-8 ' fill='#0A2F47' stroke="#0A2F47" />
                     <h1 className='font-inter text-xl lg:2xl font-extrabold text-dark-green'>ShowcaseHub</h1>
                 </Link>
 
-                <div onClick={() => setIsOpen(!isOpen)}>
-                    <Icons.Menu className='w-8 h-8 md:hidden cursor-pointer' />
+                <div className='md:hidden' onClick={() => setIsOpen(!isOpen)}>
+                    <Icons.Menu className='w-8 h-8  cursor-pointer' />
                 </div>
 
                 {
@@ -92,7 +92,7 @@ const Header = () => {
                     </div>
                 }
 
-                <ul className=' hidden md:flex text-dark-green font-medium font-inter items-center gap-6 '>
+                <ul className=' hidden md:flex justify-center text-dark-green font-medium font-inter items-center gap-6 '>
                     <li>
                         <NavLink className={({ isActive }) => isActive ? "text-primary" : "hover:text-primary"} to={"/"}>Home</NavLink>
                     </li>
@@ -130,6 +130,7 @@ const Header = () => {
 
                 </div>
             </div>
+
 
 
 

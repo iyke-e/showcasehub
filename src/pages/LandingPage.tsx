@@ -2,7 +2,7 @@ import Features from "@/component/Landingpage/Features"
 import Header from "../component/Header"
 import Hero from "@/component/Landingpage/Hero"
 import Footer from "@/component/Footer"
-import Cta from "@/component/Landingpage/Cta"
+import Cta from "@/component/Cta"
 import HowItWorks from "@/component/Landingpage/HowItWorks"
 import FeaturedProjects from "@/component/Landingpage/FeaturedProjects"
 

@@ -29,12 +29,14 @@ import Programmer from "@assets/images/programmer.jpg"
 import Tech from "@assets/images/tech.jpg"
 import Loginbg from "@assets/images/loginbg.jpg"
 import Loginbg2 from "@assets/images/loginbg2.jpg"
+import AboutHero from "@assets/images/abouthero.png"
 
 export const Images = {
     Programmer,
     Tech,
     Loginbg,
     Loginbg2,
+    AboutHero,
 
 };
 

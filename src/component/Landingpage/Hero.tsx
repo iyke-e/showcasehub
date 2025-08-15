@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 
 const Hero = () => {
     return (
-        <div className="  bg-gradient-to-b from-[#f5f9fa] to-bg2    px-minipad lg:px-pad">
+        <div className="  bg-gradient-to-b from-[#f5f9fa] to-bg2  px-minipad lg:px-pad">
             <h1 className="font-space text-dark-green pt-8 lg:pt-20  text-6xl lg:text-7xl leading-20 lg:leading-24  font-medium  text-center mb-4">Showcase Your <span className="text-primary ">Projects,</span>  <br />   <span className="text-primary">Share</span> Your Vision </h1>
             <p className="text-center mb-8 max-w-80 md:max-w-130 mx-auto">Build your personal project gallery, manage your portfolio <span className="text-primary">Projects</span>, and connect with collaborators  all in one place.</p>
             <div className="flex items-center justify-center gap-6">
@@ -21,7 +21,7 @@ const Hero = () => {
                 </div>
                 <div className="h-56 grid gap-1 bg-white rounded-3xl p-6 ">
                     <div className="flex items-top justify-between">
-                        <div className="bg-green-200 mb-2  w-fit p-1 rounded-lg">
+                        <div className="bg-green-200 mb-2  w-fit p-1 ounded-lg">
                             <Icons.UploadFolder width={30} height={30} />
                         </div>
                         <Icons.Threedot width={20} height={20} />

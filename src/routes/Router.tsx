@@ -6,6 +6,7 @@ import Dashboard from "../pages/Dashboard"
 import Profile from "../pages/Profile"
 import PublicLayout from "./PublicRouteLayout"
 import PrivateLayout from "./PrivateRouteLayout"
+import About from "@/pages/About"
 
 export const router = createBrowserRouter([
     {
@@ -13,6 +14,7 @@ export const router = createBrowserRouter([
         element: <PublicLayout />,
         children: [
             { path: "", element: <LandingPage /> },
+            { path: "about", element: <About /> },
             { path: "login", element: <Login /> },
             { path: "signup", element: <Signup /> },
         ],
