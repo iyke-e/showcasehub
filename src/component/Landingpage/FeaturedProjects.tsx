@@ -41,7 +41,7 @@ const FeaturedProjects = () => {
             </p>
             {/* mobiile animation section */}
             <div className="md:hidden">
-                <div className="relative overflow-hidden h-130">
+                <div className="relative overflow-hidden h-140">
                     <div className={`${animateNext ? "slideOutLeft" : ""} top-0 absolute`}>
                         <div
                             style={{
